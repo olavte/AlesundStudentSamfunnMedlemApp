@@ -1,0 +1,158 @@
+.top-navigation {
+    border-bottom: 1px solid lightgray;
+}
+
+.breadcrumb {
+    margin-left: -15px;
+    margin-right: -15px;
+
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    border-radius: 0;
+}
+
+#content-wrapper {
+    background-color: #E4E5E6;
+}
+
+.dashboard {
+    background-color: #2a2f33;
+}
+
+.sidebar .nav-title {
+    padding: .75rem 1rem;
+    font-size: 80%;
+    font-weight: 600;
+    color: #e4e7ea;
+    text-transform: uppercase;
+}
+
+.sidebar-dropdown-menu {
+    border-radius: 0;
+    background-color: #171a1c;
+    padding: 0;
+}
+
+.sidebar-dropdown-item {
+    color: #a5a7a9;
+    padding: 12px 24px;
+}
+
+.sidebar-dropdown-item:hover {
+    background-color: #2b3133;
+    color: #a5a7a9;
+    cursor: pointer;
+}
+
+
+/**
+Card
+ */
+.student-verification {
+    max-width: 1000px;
+}
+
+.card-header {
+    background-color: #212529;
+    color: white;
+}
+
+.img-container {
+    max-width: 500px;
+    width: 100%;
+}
+
+.student-card-information {
+    margin-bottom: 20px;
+}
+
+.information {
+    margin-top: 430px;
+}
+
+.verified-student {
+    margin-top: 112px;
+    background-color: #FECC3D;
+    padding: 27px 0;
+}
+
+.tiles-heading {
+    padding: 6px 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 12px;
+    background-color: #4166ab;
+}
+
+.tiles-icon {
+    float: left;
+    font-size: 30px;
+    line-height: 55px;
+    margin-right: 15%;
+}
+
+.text-value {
+    margin-top: 10px;
+}
+
+.tiles-body {
+    background-color: #355891;
+}
+
+.tiles-footer {
+    background-color: #355089;
+    font-size: 12px;
+    padding: 6px 10px;
+    text-align: right;
+    color: #e3e3e5;
+}
+
+/**
+Different Card Color
+ */
+.cyan-header {
+    background-color: #0CB9FB;
+}
+.pink-header {
+    background-color: #E14DAF;
+}
+.orange-header {
+    background-color: #EA9347;
+}
+.cyan-body {
+    background-color: #00ACED;
+}
+.pink-body {
+    background-color: #DC2EA1;
+}
+.orange-body {
+    background-color: #E67E22;
+}
+.cyan-footer {
+    background-color: #009DD9;
+}
+.pink-footer {
+    background-color: #D32397;
+}
+.orange-footer {
+    background-color: #DB7419;
+}
+.white-background {
+    background-color: white;
+}
+
+.card-title {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.btn-set-pad {
+    margin-top: -3px;
+    padding: 2px 6px;
+}
+
+.table-icon {
+    margin: 0 auto;
+}

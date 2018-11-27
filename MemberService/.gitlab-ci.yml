@@ -1,0 +1,62 @@
+image: maven:3.5.0-jdk-8
+
+before_script:
+# install ssh-agent
+- 'which ssh-agent || (apk add --update --no-cache openssh-client)'
+# run ssh-agent
+- 'eval $(ssh-agent -s)'
+# add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
+- echo "$SSH_PRIVATE_KEY" > /tmp/gitlab_ci_ssh
+- chmod 600 /tmp/gitlab_ci_ssh
+- ssh-add /tmp/gitlab_ci_ssh
+# disable host key checking (NOTE: makes you susceptible to man-in-the-middle attacks)
+# WARNING: use only in docker container, if you use it with shell you will overwrite your user's ssh config
+- mkdir -p ~/.ssh
+- echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+stages:
+  - build
+  - deploy
+
+buildAndTest:
+    stage: build
+    script:
+      - mvn verify
+    artifacts:
+      paths:
+        - target/*.jar
+      expire_in: 30min
+
+deployStaging:
+  stage: deploy
+  script:
+    - mvn package -Dmaven.test.skip=true
+    - mv target/*.jar member-service.jar
+    - ssh root@206.189.119.154 'service member-service stop'
+    - scp member-service.jar root@206.189.119.154:/opt/member-service/
+    - ssh root@206.189.119.154 'service member-service start'
+  environment:
+    name: stage
+  artifacts:
+    paths:
+      - member-service.jar
+    expire_in: 1d
+  when: manual
+
+deployProduction:
+  stage: deploy
+  only:
+    - master
+  script:
+    - mvn package -Dmaven.test.skip=true
+    - mv target/*.jar member-service.jar
+    - ssh root@167.99.248.168 'service member-service stop'
+    - scp member-service.jar root@167.99.248.168:/opt/member-service/
+    - ssh root@167.99.248.168 'service member-service start'
+  environment:
+    name: prod
+  artifacts:
+    paths:
+      - member-service.jar
+    expire_in: 1d
+  when: manual

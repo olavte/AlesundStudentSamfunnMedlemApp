@@ -1,0 +1,111 @@
+body,html{
+    height:100%;
+}
+
+body {
+    background: url('../image/test.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.navbar {
+    max-width: 350px;
+}
+
+.navbar-nav {
+    padding: 10px;
+}
+
+.navbar-toggler {
+    background-color: #333333;
+}
+
+.navbar-collapse {
+    background-color: #333333;
+}
+
+.nav-link, .nav-link:hover {
+    color: white;
+}
+
+.nav-item:hover {
+    background-color: #3e3e3e;
+}
+
+#collapsingNavbar {
+    margin-top: 20px;
+    border-radius: 5px;
+    z-index: 1;
+    position: relative;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.card-to-menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: -3.5px;
+    margin-left: -3px;
+}
+
+#menuModalCenter {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.popup-menu-button {
+    margin: 10px auto;
+}
+
+.member-card {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 350px;
+    width: 100%;
+    -webkit-box-shadow: 20px 7px 21px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 21px -5px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 21px -5px rgba(0,0,0,0.75);
+    background-color: #ffb5c4; /* Changes the color of the card */
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+}
+
+.stilling {
+    font-size: 44px;
+    margin: 5% auto 5% auto;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.name-of-member {
+    font-size: 37px;
+    font-weight: bold;
+    margin-bottom: 10%;
+}
+
+.valid-date {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.message {
+    font-size: 18px;
+    margin-bottom: 5%;
+}
+
+.time-left {
+    font-size: 23px;
+    font-weight: bold;
+}

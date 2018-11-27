@@ -1,0 +1,71 @@
+body {
+    background: url('../image/test.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+body,html{
+    height:100%;
+}
+
+.content {
+    position: relative;
+}
+
+.logo {
+    max-width: 100%;
+    height: 150px;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 430px;
+    padding: 15px;
+}
+
+.form-input {
+    margin-top: 20px;
+}
+
+.form-signin .form-control {
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-input {
+    border-radius: 20px;
+}
+
+input.form-input {
+}
+
+.submit-btn, .registration-btn, .forgot-pw-btn {
+    margin: 10px auto 0 auto;
+    border-radius: 20px;
+    font-weight: 200;
+    border-color: transparent;
+}
+
+.submit-btn {
+    background-color: #2A588D;
+}
+
+.forgot-pw-btn {
+    background-color: #C7C5C3;
+}
+
+.clickable-link {
+    color: white;
+}
+
+.clickable-link:hover {
+    text-decoration: none;
+    color: blue;
+}

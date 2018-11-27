@@ -1,0 +1,48 @@
+= MemberService
+
+[.lead]
+Application runs on port [big blue white-background]#8081#
+
+IMPORTANT: This application is a pure backend application with endpoints for REST-calls.
+
+== Setup
+
+[[eap]]
+=== Enable annotation processing
+This project requires annotation processing. To enable it, go to
+Settings (CTRL+ALT+S) in your IntelliJ IDEA. Go to Build, Execution, Deployment -> Compiler ->
+Annotation Processors. Check *Enable annotation processing*. Click Apply, then OK.
+
+
+=== Checkout from Version Control
+You could be prompted as you open the project that 'Non-managed pom.xml file found', if so, click the
+'Add as a Maven Project'.
+
+If not prompted to add as a maven project, open the Maven tab (top right corner of your IntelliJ IDEA).
+If there's a maven project listed in the tab, remove it by right clicking and choosing Remove Projects (- icon).
+Click Add Maven Projects (+ icon), select
+pom.xml located in your project root.
+
+=== Run configuration
+TIP: If you have not <<eap,enabled annotation processing>>, you should do so now.
+
+Locate the runnable *MemberServiceRunner.java* located in
+<your project root>/src/main/java/no/astudent/memberservice/MemberServiceRunner.java.
+Run it to auto-generate a run configuration that will now be visible in the Run Configurations-dropdown in the top
+right corner of your IDEA. Don't worry if the application does not run at this point, there is more to set up before
+running the application.
+
+==== Active Profiles
+An active profile needs to be set for the application to run correctly.
+Use them based on context and environment (it is recommended that you use one of the options marked in *bold* for
+first-time development):
+
+--
+*dev*
+--
+
+== Running the application
+You can now run/debug the application through the IntelliJ IDEA
+
+=== Testing during development
+You can test existing or new REST-endpoints with https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=no[Advanced REST client (ARC)]

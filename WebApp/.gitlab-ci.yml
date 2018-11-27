@@ -1,0 +1,56 @@
+image: maven:3.5.0-jdk-8
+
+before_script:
+# install ssh-agent
+- 'which ssh-agent || (apk add --update --no-cache openssh-client)'
+# run ssh-agent
+- 'eval $(ssh-agent -s)'
+# add ssh key stored in SSH_PRIVATE_KEY variable to the agent store
+- echo "$SSH_PRIVATE_KEY" > /tmp/gitlab_ci_ssh
+- chmod 600 /tmp/gitlab_ci_ssh
+- ssh-add /tmp/gitlab_ci_ssh
+# disable host key checking (NOTE: makes you susceptible to man-in-the-middle attacks)
+# WARNING: use only in docker container, if you use it with shell you will overwrite your user's ssh config
+- mkdir -p ~/.ssh
+- echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+stages:
+  - build
+  - deploy
+
+buildAndTest:
+    stage: build
+    script:
+      - mvn verify
+    artifacts:
+      paths:
+        - target/*.jar
+      expire_in: 5d
+
+deployStaging:
+  stage: deploy
+  script:
+    - mvn package
+    - mv target/*.jar web-app.jar
+    - ssh root@206.189.119.154 'service web-app stop'
+    - scp web-app.jar root@206.189.119.154:/opt/web-app/
+    - ssh root@206.189.119.154 'service web-app start'
+  artifacts:
+    paths:
+      - web-app.jar
+    expire_in: 50d
+  when: manual
+
+deployProduction:
+  stage: deploy
+  script:
+    - mvn package
+    - mv target/*.jar web-app.jar
+    - ssh root@167.99.248.168 'service web-app stop'
+    - scp web-app.jar root@167.99.248.168:/opt/web-app/
+    - ssh root@167.99.248.168 'service web-app start'
+  artifacts:
+    paths:
+      - web-app.jar
+    expire_in: 100d
+  when: manual

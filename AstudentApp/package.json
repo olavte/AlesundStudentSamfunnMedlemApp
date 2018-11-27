@@ -1,0 +1,28 @@
+{
+  "name": "AstudentApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "build:ios": "react-native bundle --platform ios --entry-file index.js --bundle-output ios/AstudentApp/main.jsbundle --dev false --assets-dest ios",
+    "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest andro id/app/src/main/res"
+  },
+  "dependencies": {
+    "react": "16.6.1",
+    "react-native": "0.57.5",
+    "babel-preset-react-native": "4.0.0",
+    "react-native-webview-android": "^1.1.17",
+    "react-native-webview-file-upload-android": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "^0.49.2",
+    "react-test-renderer": "16.6.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
